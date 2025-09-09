@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -40,3 +41,9 @@
 .read-the-docs {
   color: #888;
 }
+=======
+h1 {
+  color: darkgray;
+  font-family: Arial, sans-serif;
+}
+>>>>>>> 958d97462a1641749f8f8309490520dc07a6ebb5
