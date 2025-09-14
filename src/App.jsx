@@ -1,43 +1,35 @@
-<<<<<<< HEAD
-import React from "react";
-import Timer from "./Timer";
-=======
-<<<<<<< HEAD
-import ToDoList from "./ToDoList";
->>>>>>> c2d869fa73281d7c7a3a2f23c0ee594aedf53a2c
+import { useState, useEffect } from "react";
 
 function App() {
-  return (
-    <div>
-<<<<<<< HEAD
-      <Timer />
-=======
-      <ToDoList />
-=======
-import React from "react";
-import UserCard from "./UserCard";
-import Button from "./Button";
-import "./App.css";
+  const [timeLeft, setTimeLeft] = useState(0);
+  const [isRunning, setIsRunning] = useState(false);
 
-function App() {
+  const startTimer = (sec) => {
+    setTimeLeft(sec);
+    setIsRunning(true);
+  };
 
-  const users = [
-    { id: 101, name: "Ahmad", email: "ahmad@mail.com" },
-    { id: 102, name: "samir", email: "samir@mail.com" },
-    { id: 103, name: "Laila", email: "laila@mail.com" },
-  ];
+  useEffect(() => {
+    let timer;
+    if (isRunning && timeLeft > 0) {
+      timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
+    } else if (timeLeft === 0) {
+      setIsRunning(false);
+    }
+    return () => clearTimeout(timer);
+  }, [timeLeft, isRunning]);
 
   return (
-    <div>
-      <h1>My Users</h1>
-
-      {users.map((u) => (
-        <UserCard key={u.id} name={u.name} email={u.email} />
-      ))}
-
-      <Button text="Submit" />
->>>>>>> 958d97462a1641749f8f8309490520dc07a6ebb5
->>>>>>> c2d869fa73281d7c7a3a2f23c0ee594aedf53a2c
+    <div style={{ textAlign: "center", marginTop: "50px" }}>
+      <h2>Countdown Timer</h2>
+      <input
+        type="number"
+        placeholder="Enter seconds"
+        onChange={(e) => setTimeLeft(Number(e.target.value))}
+      />
+      <br />
+      <button onClick={() => startTimer(timeLeft)}>Start</button>
+      <h3>{timeLeft} seconds left</h3>
     </div>
   );
 }
