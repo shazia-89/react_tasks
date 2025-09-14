@@ -1,5 +1,9 @@
 {
-  "name": "hw3",
+<<<<<<< HEAD
+  "name": "cw3",
+=======
+  "name": "hw2",
+>>>>>>> 958d97462a1641749f8f8309490520dc07a6ebb5
   "private": true,
   "version": "0.0.0",
   "type": "module",
