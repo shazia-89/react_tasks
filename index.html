@@ -13,6 +13,16 @@
 </html>
 
 
+
+useEffect(() => {
+  if (time > 0 && isRunning) {
+    const timer = setInterval(() => setTime(time - 1), 1000);
+    return () => clearInterval(timer);
+  } else if (time === 0) {
+    alert("Time's up!");
+  }
+}, [time, isRunning]);
+
 timer 
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
